@@ -36,22 +36,19 @@
     <ClCompile Include="BufferPrinterThread.cpp">
       <Filter>Source Files\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="PrinterConsumerThread.cpp">
-      <Filter>Source Files\Tasks</Filter>
-    </ClCompile>
     <ClCompile Include="BufferThreadBase.cpp">
       <Filter>Source Files\Tasks</Filter>
     </ClCompile>
     <ClCompile Include="ProducerThread.cpp">
       <Filter>Source Files\Tasks</Filter>
     </ClCompile>
+    <ClCompile Include="ConsumerThread.cpp">
+      <Filter>Source Files\Tasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.h">
       <Filter>Header Files\Buffer</Filter>
-    </ClInclude>
-    <ClInclude Include="PrinterConsumerThread.h">
-      <Filter>Header Files\Tasks</Filter>
     </ClInclude>
     <ClInclude Include="BufferThreadBase.h">
       <Filter>Header Files\Tasks</Filter>
@@ -60,6 +57,9 @@
       <Filter>Header Files\Tasks</Filter>
     </ClInclude>
     <ClInclude Include="ProducerThread.h">
+      <Filter>Header Files\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsumerThread.h">
       <Filter>Header Files\Tasks</Filter>
     </ClInclude>
   </ItemGroup>

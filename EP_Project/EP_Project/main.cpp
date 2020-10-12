@@ -3,8 +3,8 @@
 
 #include "Buffer.h"
 #include "ProducerThread.h"
+#include "ConsumerThread.h"
 #include "BufferThreadBase.h"
-#include "PrinterConsumerThread.h"
 #include "BufferPrinterThread.h"
 
 
@@ -24,7 +24,7 @@ int main()
 
     // Create threads wrappers
     std::unique_ptr <BufferThreadBase> producerPtr = std::make_unique<ProducerThread>();
-    std::unique_ptr <BufferThreadBase> consumerPtr = std::make_unique<PrinterConsumerThread>();
+    std::unique_ptr <BufferThreadBase> consumerPtr = std::make_unique<ConsumerThread>();
     std::unique_ptr <BufferPrinterThread> bufferPrinterPtr = std::make_unique<BufferPrinterThread>();
 
     // Create a thread using member function

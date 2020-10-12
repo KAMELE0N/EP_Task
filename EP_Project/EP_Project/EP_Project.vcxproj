@@ -149,7 +149,7 @@
   <ItemGroup>
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="BufferPrinterThread.cpp" />
-    <ClCompile Include="PrinterConsumerThread.cpp" />
+    <ClCompile Include="ConsumerThread.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BufferThreadBase.cpp" />
     <ClCompile Include="ProducerThread.cpp" />
@@ -158,7 +158,7 @@
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="BufferPrinterThread.h" />
     <ClInclude Include="BufferThreadBase.h" />
-    <ClInclude Include="PrinterConsumerThread.h" />
+    <ClInclude Include="ConsumerThread.h" />
     <ClInclude Include="ProducerThread.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
