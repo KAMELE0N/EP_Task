@@ -9,25 +9,27 @@
 class Buffer
 {
 	public:
-		Buffer(int size, int batchSize);
+		Buffer(unsigned int size, unsigned int batchSize);
 		virtual ~Buffer();
 
 		void add(float newData);
 		std::vector<float> get();
-		std::vector<float> peek();
 
 	private:
-		int _totalSize;
-		int _batchSize;
-		int _dataCount;
+		unsigned int _totalSize;
+		unsigned int _batchSize;
+		unsigned int _dataCount;
 
 		float* _buffer;
 		std::atomic<int> _head = 0;
 		std::atomic<int> _tail = 0;
 
+		std::vector<float> batchVector;
 		std::mutex readWriteMutex;
 
 		void clear();
 		float getSingle();
+		void addSingle(float newData);
+		void addBatch(std::vector<float> newData);
 };
 
