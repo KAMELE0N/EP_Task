@@ -1,5 +1,6 @@
 #pragma once
 #include "BufferThreadBase.h"
+
 class BufferPrinterThread : public BufferThreadBase
 {
 	public:
