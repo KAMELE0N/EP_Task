@@ -42,6 +42,7 @@ std::vector<float> Buffer::get() {
 	}
 
 	_newDataAvailable = false;
+	std::reverse(returnVector.begin(), returnVector.end());
 	return returnVector;
 }
 
