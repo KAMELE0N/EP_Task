@@ -4,6 +4,7 @@
 #include <atomic>
 #include <mutex>
 
+// TODO change to singleton 
 // Maybe convert to template
 // Aims to mimic circular buffer
 class Buffer
@@ -29,7 +30,6 @@ class Buffer
 		std::vector<float> batchBuffer;
 		std::mutex readWriteMutex;
 
-		void clear();
 		float getSingle();
 		void addSingle(float newData);
 		void addBatch(std::vector<float> newData);

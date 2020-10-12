@@ -28,14 +28,10 @@ bool Buffer::isNewDataAvailable() {
 }
 
 std::vector<float> Buffer::get() {
-	// TODO ADD separate readMutex
-	// TODO ADD isBatchReady flag -> only then read
-	// TODO Check isEmpty -> however it should not oddur after implementing isBatchReady
-
 	const std::lock_guard<std::mutex> lock(readWriteMutex);
 
 	std::vector<float> returnVector {};
-	while (_dataCount != 0) {
+	while (_dataCount > 0) {
 		returnVector.push_back(getSingle());
 	}
 
@@ -69,6 +65,5 @@ float Buffer::getSingle() {
 	float returnValue = _buffer[_tail];
 	_tail = (_tail+1) % _totalSize;
 	_dataCount--;
-	// TODO Check if empty
 	return returnValue;
 }
