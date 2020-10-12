@@ -11,7 +11,9 @@ void BufferTaskBase::join() {
 	uthread = nullptr;
 }
 
-BufferTaskBase::BufferTaskBase() {};
+BufferTaskBase::BufferTaskBase(std::shared_ptr<Buffer> buffer) {
+	_buffer = buffer;
+};
 
 BufferTaskBase::~BufferTaskBase() {
 	if (uthread) {

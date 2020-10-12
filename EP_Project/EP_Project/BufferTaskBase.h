@@ -1,12 +1,14 @@
 #pragma once
+#include <memory>
 #include <thread>
 #include <iostream>
 #include <Windows.h>
+#include "Buffer.h"
 
 class BufferTaskBase
 {
 	public:
-		BufferTaskBase();
+		BufferTaskBase(std::shared_ptr<Buffer> buffer);
 		virtual ~BufferTaskBase();
 
 
@@ -27,5 +29,6 @@ class BufferTaskBase
 		}
 
 		std::thread* uthread = nullptr;
+		std::shared_ptr<Buffer> _buffer;
 };
 

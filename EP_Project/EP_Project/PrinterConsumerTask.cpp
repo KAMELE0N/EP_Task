@@ -1,13 +1,5 @@
 #include "PrinterConsumerTask.h"
 
-PrinterConsumerTask::PrinterConsumerTask() {
-
-}
-
-PrinterConsumerTask::~PrinterConsumerTask() {
-
-}
-
 void PrinterConsumerTask::run(int sleepTime){
 	_sleepTime = sleepTime;
 

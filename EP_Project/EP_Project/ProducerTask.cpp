@@ -1,13 +1,4 @@
 #include "ProducerTask.h"
-
-ProducerTask::ProducerTask() {
-
-}
-
-ProducerTask::~ProducerTask() {
-
-}
-
 void ProducerTask::run(int sleepTime) {
 	_sleepTime = sleepTime;
 

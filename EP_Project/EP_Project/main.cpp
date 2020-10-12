@@ -14,9 +14,7 @@ int main()
     const size_t bufferSize = 100;
 
     // TODO change to singleton 
-    std::unique_ptr<Buffer> mainBuffer = std::make_unique<Buffer>(bufferSize, batchSize);
-
-    //simpleBufferTest(mainBuffer);
+    std::shared_ptr<Buffer> mainBuffer = std::make_shared<Buffer>(bufferSize, batchSize);
 
     std::unique_ptr <BufferTaskBase> producerTaskPtr = std::make_unique<ProducerTask>();
     std::unique_ptr <BufferTaskBase> consumerTaskPtr = std::make_unique<PrinterConsumerTask>();

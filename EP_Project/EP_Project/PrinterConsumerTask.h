@@ -4,8 +4,10 @@
 class PrinterConsumerTask : public BufferTaskBase
 {
 	public:
-		PrinterConsumerTask();
-		virtual ~PrinterConsumerTask();
+		PrinterConsumerTask() : BufferTaskBase(std::make_shared<Buffer>(1, 1)) {};
+		PrinterConsumerTask(std::shared_ptr<Buffer> buffer) : BufferTaskBase(buffer) {};
+		virtual ~PrinterConsumerTask() {};
+
 		void run(int sleepTime) override;
 };
 
