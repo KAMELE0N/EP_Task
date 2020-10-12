@@ -6,6 +6,6 @@ class PrinterConsumerTask : public BufferTaskBase
 	public:
 		PrinterConsumerTask();
 		virtual ~PrinterConsumerTask();
-		void execute() override;
+		void run(int sleepTime) override;
 };
 

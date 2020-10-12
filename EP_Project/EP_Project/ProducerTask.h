@@ -5,6 +5,6 @@ class ProducerTask : public BufferTaskBase
 	public:
 		ProducerTask();
 		virtual ~ProducerTask();
-		void execute() override;
+		void run(int sleepTime) override;
 };
 

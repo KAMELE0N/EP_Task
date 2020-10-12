@@ -1,13 +1,20 @@
 #include "BufferTaskBase.h"
 
-BufferTaskBase::BufferTaskBase() {
-
+void BufferTaskBase::start(int sleepTime) {
+	uthread = new std::thread(BufferTaskBase::execute, this, sleepTime);
 }
+
+void BufferTaskBase::join() {
+	cancellationToken = true;
+	uthread->join();
+	delete uthread;
+	uthread = nullptr;
+}
+
+BufferTaskBase::BufferTaskBase() {};
 
 BufferTaskBase::~BufferTaskBase() {
-
-}
-
-void BufferTaskBase::stop() {
-	cancellationToken = true;
+	if (uthread) {
+		delete uthread;
+	}
 }

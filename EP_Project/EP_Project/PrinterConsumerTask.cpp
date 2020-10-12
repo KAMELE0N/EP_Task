@@ -8,7 +8,7 @@ PrinterConsumerTask::~PrinterConsumerTask() {
 
 }
 
-void PrinterConsumerTask::execute(int sleepTime){
+void PrinterConsumerTask::run(int sleepTime){
 	_sleepTime = sleepTime;
 
 	while (!cancellationToken) {

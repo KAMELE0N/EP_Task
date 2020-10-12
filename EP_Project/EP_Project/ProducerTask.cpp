@@ -8,7 +8,8 @@ ProducerTask::~ProducerTask() {
 
 }
 
-void ProducerTask::execute() {
+void ProducerTask::run(int sleepTime) {
+	_sleepTime = sleepTime;
 
 	while (!cancellationToken) {
 		std::cout << "producer ping" << std::endl;

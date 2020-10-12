@@ -3,6 +3,7 @@
 #include "Buffer.h"
 #include "BufferTaskBase.h"
 #include "PrinterConsumerTask.h"
+#include "ProducerTask.h"
 
 
 int main()
@@ -14,12 +15,17 @@ int main()
     std::unique_ptr<Buffer> mainBuffer = std::make_unique<Buffer>(bufferSize, batchSize);
 
     //simpleBufferTest(mainBuffer);
-    BufferTaskBase* taskPtr = new PrinterConsumerTask(1000);
-    // Create a thread using member function
-    std::thread th(&PrinterConsumerTask::execute);
 
-    th.join();
-    delete taskPtr;
+    BufferTaskBase* producerTaskPtr = new ProducerTask();
+    BufferTaskBase* consumerTaskPtr = new PrinterConsumerTask();
+    // Create a thread using member function
+    producerTaskPtr->start(1000);
+    consumerTaskPtr->start(2000);
+    Sleep(10000);
+    producerTaskPtr->join();
+    consumerTaskPtr->join();
+    delete producerTaskPtr;
+    delete consumerTaskPtr;
 }
 
 void simpleBufferTest(std::unique_ptr<Buffer> mainBuffer) {
