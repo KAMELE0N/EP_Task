@@ -9,7 +9,7 @@ void PrinterThread::run(int sleepTime) {
 		if (_buffer->isNewDataAvailable()) {
 			std::vector<float> bufferContent = _buffer->get();
 			for (auto& i : bufferContent) {
-				std::cout << i << " ";
+				std::cout << i << " \t";
 			}
 		} else {
 			std::cout << " Buffer Empty";
