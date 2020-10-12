@@ -33,13 +33,16 @@
     <ClCompile Include="Buffer.cpp">
       <Filter>Source Files\Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="BufferTaskBase.cpp">
+    <ClCompile Include="BufferPrinterThread.cpp">
       <Filter>Source Files\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="ProducerTask.cpp">
+    <ClCompile Include="PrinterConsumerThread.cpp">
       <Filter>Source Files\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="PrinterConsumerTask.cpp">
+    <ClCompile Include="BufferThreadBase.cpp">
+      <Filter>Source Files\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="ProducerThread.cpp">
       <Filter>Source Files\Tasks</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +50,16 @@
     <ClInclude Include="Buffer.h">
       <Filter>Header Files\Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="BufferTaskBase.h">
+    <ClInclude Include="PrinterConsumerThread.h">
       <Filter>Header Files\Tasks</Filter>
     </ClInclude>
-    <ClInclude Include="ProducerTask.h">
+    <ClInclude Include="BufferThreadBase.h">
       <Filter>Header Files\Tasks</Filter>
     </ClInclude>
-    <ClInclude Include="PrinterConsumerTask.h">
+    <ClInclude Include="BufferPrinterThread.h">
+      <Filter>Header Files\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="ProducerThread.h">
       <Filter>Header Files\Tasks</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,11 +5,11 @@
 #include <Windows.h>
 #include "Buffer.h"
 
-class BufferTaskBase
+class BufferThreadBase
 {
 	public:
-		BufferTaskBase(std::shared_ptr<Buffer> buffer);
-		virtual ~BufferTaskBase();
+		BufferThreadBase(std::shared_ptr<Buffer> buffer);
+		virtual ~BufferThreadBase();
 
 
 		void start(int sleepTime);
@@ -24,7 +24,7 @@ class BufferTaskBase
 
 	private:
 		// static function which points back to the class
-		static void execute(BufferTaskBase* cppThread, int sleepTime) {
+		static void execute(BufferThreadBase* cppThread, int sleepTime) {
 			cppThread->run(sleepTime);
 		}
 

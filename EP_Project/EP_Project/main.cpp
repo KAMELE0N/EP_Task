@@ -1,9 +1,9 @@
 #include <iostream>
 #include <memory>
 #include "Buffer.h"
-#include "BufferTaskBase.h"
-#include "PrinterConsumerTask.h"
-#include "ProducerTask.h"
+#include "BufferThreadBase.h"
+#include "PrinterConsumerThread.h"
+#include "ProducerThread.h"
 
 
 int main()
@@ -17,8 +17,8 @@ int main()
     std::shared_ptr<Buffer> mainBuffer = std::make_shared<Buffer>(bufferSize, batchSize);
 
     // Create threads wrappers
-    std::unique_ptr <BufferTaskBase> producerTaskPtr = std::make_unique<ProducerTask>();
-    std::unique_ptr <BufferTaskBase> consumerTaskPtr = std::make_unique<PrinterConsumerTask>();
+    std::unique_ptr <BufferThreadBase> producerTaskPtr = std::make_unique<ProducerThread>();
+    std::unique_ptr <BufferThreadBase> consumerTaskPtr = std::make_unique<PrinterConsumerThread>();
 
     // Create a thread using member function
     producerTaskPtr->start(1000);

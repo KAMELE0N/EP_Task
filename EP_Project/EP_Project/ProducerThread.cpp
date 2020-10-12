@@ -1,6 +1,6 @@
-#include "ProducerTask.h"
+#include "ProducerThread.h"
 
-void ProducerTask::run(int sleepTime) {
+void ProducerThread::run(int sleepTime) {
 	_sleepTime = sleepTime;
 
 	while (!cancellationToken) {

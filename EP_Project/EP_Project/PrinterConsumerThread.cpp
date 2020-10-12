@@ -1,6 +1,6 @@
-#include "PrinterConsumerTask.h"
+#include "PrinterConsumerThread.h"
 
-void PrinterConsumerTask::run(int sleepTime){
+void PrinterConsumerThread::run(int sleepTime){
 	_sleepTime = sleepTime;
 
 	while (!cancellationToken) {
