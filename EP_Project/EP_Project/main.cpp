@@ -8,6 +8,8 @@
 
 int main()
 {
+    std::cout << "Program will terminate after any user input" << std::endl;
+
     int batchSize = 1;
     const size_t bufferSize = 100;
 
@@ -16,25 +18,16 @@ int main()
 
     //simpleBufferTest(mainBuffer);
 
-    BufferTaskBase* producerTaskPtr = new ProducerTask();
-    BufferTaskBase* consumerTaskPtr = new PrinterConsumerTask();
+    std::unique_ptr <BufferTaskBase> producerTaskPtr = std::make_unique<ProducerTask>();
+    std::unique_ptr <BufferTaskBase> consumerTaskPtr = std::make_unique<PrinterConsumerTask>();
     // Create a thread using member function
     producerTaskPtr->start(1000);
     consumerTaskPtr->start(2000);
-    Sleep(10000);
+
+
+    std::cin.get();
+
+    // Close threads
     producerTaskPtr->join();
     consumerTaskPtr->join();
-    delete producerTaskPtr;
-    delete consumerTaskPtr;
-}
-
-void simpleBufferTest(std::unique_ptr<Buffer> mainBuffer) {
-    std::vector<float> a = { 3, 1, 2 };
-    mainBuffer->add(a);
-
-    std::vector<float> b = mainBuffer->get();
-
-    for (auto& i : b) {
-        std::cout << i << std::endl;
-    }
 }
