@@ -39,9 +39,6 @@
     <ClCompile Include="ProducerThread.cpp">
       <Filter>Source Files\Threads</Filter>
     </ClCompile>
-    <ClCompile Include="ConsumerThread.cpp">
-      <Filter>Source Files\Threads</Filter>
-    </ClCompile>
     <ClCompile Include="PrinterThread.cpp">
       <Filter>Source Files\Threads</Filter>
     </ClCompile>
@@ -54,9 +51,6 @@
       <Filter>Header Files\Threads</Filter>
     </ClInclude>
     <ClInclude Include="ProducerThread.h">
-      <Filter>Header Files\Threads</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsumerThread.h">
       <Filter>Header Files\Threads</Filter>
     </ClInclude>
     <ClInclude Include="PrinterThread.h">

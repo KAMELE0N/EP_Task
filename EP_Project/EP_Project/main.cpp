@@ -4,7 +4,6 @@
 #include "Buffer.h"
 #include "PrinterThread.h"
 #include "ProducerThread.h"
-#include "ConsumerThread.h"
 #include "BufferThreadBase.h"
 
 
