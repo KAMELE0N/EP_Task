@@ -21,6 +21,7 @@ void Buffer::add(float newData) {
 }
 
 std::vector<float> Buffer::get() {
+
 	// TODO ADD separate readMutex
 	// TODO ADD isBatchReady flag -> only then read
 	// TODO Check isEmty -> however it should not oddur after implementing isBatchReady

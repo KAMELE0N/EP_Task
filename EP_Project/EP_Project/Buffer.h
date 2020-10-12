@@ -17,13 +17,13 @@ class Buffer
 		std::vector<float> peek();
 
 	private:
-		float* _buffer;
-		std::atomic<int> _head = 0;
-		std::atomic<int> _tail = 0;
-
 		int _totalSize;
 		int _batchSize;
 		int _dataCount;
+
+		float* _buffer;
+		std::atomic<int> _head = 0;
+		std::atomic<int> _tail = 0;
 
 		std::mutex readWriteMutex;
 

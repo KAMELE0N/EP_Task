@@ -24,12 +24,12 @@ int main()
 
     // Create threads wrappers
     std::unique_ptr <BufferThreadBase> producerPtr = std::make_unique<ProducerThread>(mainBuffer);
-    std::unique_ptr <BufferThreadBase> consumerPtr = std::make_unique<ConsumerThread>(mainBuffer);
+    //std::unique_ptr <BufferThreadBase> consumerPtr = std::make_unique<ConsumerThread>(mainBuffer);
     std::unique_ptr <PrinterThread> bufferPrinterPtr = std::make_unique<PrinterThread>(mainBuffer);
 
     // Create a thread using member function
     producerPtr->start(producerInterval);
-    consumerPtr->start(consumerInterval);
+    //consumerPtr->start(consumerInterval);
     bufferPrinterPtr->start(printerInterval);
 
     // Wait for user input
@@ -37,6 +37,6 @@ int main()
 
     // Close threads
     producerPtr->join();
-    consumerPtr->join();
+    //consumerPtr->join();
     bufferPrinterPtr->join();
 }
