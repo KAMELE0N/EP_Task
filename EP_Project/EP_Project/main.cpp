@@ -11,12 +11,12 @@
 int main()
 {
     std::cout << "Program will terminate after RETURN key press" << std::endl;
-    int producerInterval = 500;
+    int producerInterval = 1000;
     int consumerInterval = 2000;
 
 
     unsigned int batchSize = 1;
-    const unsigned int bufferSize = 100;
+    const unsigned int bufferSize = 10;
     // TODO change to singleton 
     std::shared_ptr<Buffer> mainBuffer = std::make_shared<Buffer>(bufferSize, batchSize);
 

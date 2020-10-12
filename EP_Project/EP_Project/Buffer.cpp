@@ -30,9 +30,15 @@ bool Buffer::isNewDataAvailable() {
 std::vector<float> Buffer::get() {
 	const std::lock_guard<std::mutex> lock(readWriteMutex);
 
+	int localTail = _tail;
+	int localDataCount = _dataCount;
+
 	std::vector<float> returnVector {};
-	while (_dataCount > 0) {
-		returnVector.push_back(getSingle());
+	while (localDataCount > 0) {
+		float returnValue = _buffer[localTail];
+		localTail = (localTail + 1) % _totalSize;
+		localDataCount--;
+		returnVector.push_back(returnValue);
 	}
 
 	_newDataAvailable = false;
