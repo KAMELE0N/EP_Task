@@ -11,32 +11,28 @@
 
 int main()
 {
-    std::cout << "Program will terminate after any user input" << std::endl;
-    int producerInterval = 1000;
+    std::cout << "Program will terminate after RETURN key press" << std::endl;
+    int producerInterval = 500;
     int consumerInterval = 2000;
-    int printerInterval = 10000;
 
 
-    int batchSize = 1;
-    const int bufferSize = 100;
+    unsigned int batchSize = 1;
+    const unsigned int bufferSize = 100;
     // TODO change to singleton 
     std::shared_ptr<Buffer> mainBuffer = std::make_shared<Buffer>(bufferSize, batchSize);
 
     // Create threads wrappers
     std::unique_ptr <BufferThreadBase> producerPtr = std::make_unique<ProducerThread>(mainBuffer);
-    //std::unique_ptr <BufferThreadBase> consumerPtr = std::make_unique<ConsumerThread>(mainBuffer);
     std::unique_ptr <PrinterThread> bufferPrinterPtr = std::make_unique<PrinterThread>(mainBuffer);
 
     // Create a thread using member function
     producerPtr->start(producerInterval);
-    //consumerPtr->start(consumerInterval);
-    bufferPrinterPtr->start(printerInterval);
+    bufferPrinterPtr->start(consumerInterval);
 
     // Wait for user input
     std::cin.get();
 
     // Close threads
     producerPtr->join();
-    //consumerPtr->join();
     bufferPrinterPtr->join();
 }
