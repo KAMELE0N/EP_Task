@@ -16,13 +16,15 @@ int main()
     // TODO change to singleton 
     std::shared_ptr<Buffer> mainBuffer = std::make_shared<Buffer>(bufferSize, batchSize);
 
+    // Create threads wrappers
     std::unique_ptr <BufferTaskBase> producerTaskPtr = std::make_unique<ProducerTask>();
     std::unique_ptr <BufferTaskBase> consumerTaskPtr = std::make_unique<PrinterConsumerTask>();
+
     // Create a thread using member function
     producerTaskPtr->start(1000);
     consumerTaskPtr->start(2000);
 
-
+    // Wait for user input
     std::cin.get();
 
     // Close threads
