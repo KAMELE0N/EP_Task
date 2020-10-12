@@ -1,5 +1,6 @@
 #pragma once
 #include "BufferThreadBase.h"
+#include <iomanip>
 
 class PrinterThread : public BufferThreadBase
 {

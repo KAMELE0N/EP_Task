@@ -18,14 +18,14 @@ int main()
 
 
     int batchSize = 1;
-    const size_t bufferSize = 100;
+    const int bufferSize = 100;
     // TODO change to singleton 
     std::shared_ptr<Buffer> mainBuffer = std::make_shared<Buffer>(bufferSize, batchSize);
 
     // Create threads wrappers
-    std::unique_ptr <BufferThreadBase> producerPtr = std::make_unique<ProducerThread>();
-    std::unique_ptr <BufferThreadBase> consumerPtr = std::make_unique<ConsumerThread>();
-    std::unique_ptr <PrinterThread> bufferPrinterPtr = std::make_unique<PrinterThread>();
+    std::unique_ptr <BufferThreadBase> producerPtr = std::make_unique<ProducerThread>(mainBuffer);
+    std::unique_ptr <BufferThreadBase> consumerPtr = std::make_unique<ConsumerThread>(mainBuffer);
+    std::unique_ptr <PrinterThread> bufferPrinterPtr = std::make_unique<PrinterThread>(mainBuffer);
 
     // Create a thread using member function
     producerPtr->start(producerInterval);

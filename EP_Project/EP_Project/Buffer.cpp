@@ -35,8 +35,26 @@ std::vector<float> Buffer::get() {
 	return returnVector;
 }
 
+std::vector<float> Buffer::peek() {
+	const std::lock_guard<std::mutex> lock(readWriteMutex);
+
+	// TODO Remove duplication -> for now it gets the buffer but it is not modyfiing original tail and head
+	int peekHead = _head;
+	int peekTail = _tail;
+	int peekDataCount = _dataCount;
+
+	std::vector<float> returnVector {};
+	while (peekDataCount != 0) {
+		float value = _buffer[peekTail];
+		peekTail = (peekTail + 1) % _totalSize;
+		peekDataCount--;
+
+		returnVector.push_back(value);
+	}
+	return returnVector;
+}
+
 void Buffer::clear() {
-	// TODO ADD THREAD LOCKS
 
 }
 

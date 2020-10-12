@@ -5,6 +5,7 @@
 #include <mutex>
 
 // Maybe convert to template
+// Aims to mimic circular buffer
 class Buffer
 {
 	public:
@@ -13,11 +14,12 @@ class Buffer
 
 		void add(float newData);
 		std::vector<float> get();
+		std::vector<float> peek();
 
 	private:
 		float* _buffer;
-		std::atomic<int> _head;
-		std::atomic<int> _tail;
+		std::atomic<int> _head = 0;
+		std::atomic<int> _tail = 0;
 
 		int _totalSize;
 		int _batchSize;

@@ -4,9 +4,13 @@ void PrinterThread::run(int sleepTime) {
 	_sleepTime = sleepTime;
 
 	while (!cancellationToken) {
-		std::cout << "Printer ping" << std::endl; // Debug log
+		std::cout << std::endl << "Buffer content:" << std::setprecision(2) << std::endl;
 
-		// TODO Add printing logic
+		std::vector<float> bufferContent = _buffer->peek();
+		for (auto& i : bufferContent) {
+			std::cout << i << " ";
+		}
+
 		Sleep(_sleepTime);
 	}
 }
