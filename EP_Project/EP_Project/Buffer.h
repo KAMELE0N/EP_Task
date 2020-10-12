@@ -14,6 +14,7 @@ class Buffer
 
 		void add(float newData);
 		std::vector<float> get();
+		bool isNewDataAvailable();
 
 	private:
 		unsigned int _totalSize;
@@ -23,8 +24,9 @@ class Buffer
 		float* _buffer;
 		std::atomic<int> _head = 0;
 		std::atomic<int> _tail = 0;
+		std::atomic<bool> _newDataAvailable;
 
-		std::vector<float> batchVector;
+		std::vector<float> batchBuffer;
 		std::mutex readWriteMutex;
 
 		void clear();

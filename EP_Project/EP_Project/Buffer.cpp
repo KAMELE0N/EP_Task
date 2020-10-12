@@ -5,6 +5,7 @@ Buffer::Buffer(unsigned int size, unsigned int batchSize) {
 	_batchSize = batchSize;
 	_totalSize = size;
 	_dataCount = 0;
+	_newDataAvailable = false;
 }
 
 Buffer::~Buffer() {
@@ -12,24 +13,21 @@ Buffer::~Buffer() {
 }
 
 void Buffer::add(float newData) {
-	const std::lock_guard<std::mutex> lock(readWriteMutex);
+	batchBuffer.push_back(newData);
 
-	batchVector.push_back(newData);
-
-	if (batchVector.size() >= _batchSize) {
-		addBatch(batchVector);
-		batchVector.clear();
+	if (batchBuffer.size() >= _batchSize) {
+		const std::lock_guard<std::mutex> lock(readWriteMutex);
+		addBatch(batchBuffer);
+		_newDataAvailable = true;
+		batchBuffer.clear();
 	}
 }
 
-void Buffer::addBatch(std::vector<float> newData) {
-	for(auto& d : newData) {
-		addSingle(d);
-	}
+bool Buffer::isNewDataAvailable() {
+	return _newDataAvailable;
 }
 
 std::vector<float> Buffer::get() {
-
 	// TODO ADD separate readMutex
 	// TODO ADD isBatchReady flag -> only then read
 	// TODO Check isEmpty -> however it should not oddur after implementing isBatchReady
@@ -41,18 +39,30 @@ std::vector<float> Buffer::get() {
 		returnVector.push_back(getSingle());
 	}
 
+	_newDataAvailable = false;
 	return returnVector;
 }
 
-void Buffer::clear() {
-
+void Buffer::addBatch(std::vector<float> newData) {
+	for (auto& d : newData) {
+		addSingle(d);
+	}
 }
 
+// Im not 100% sure about this because i coded it during last minutes
 void Buffer::addSingle(float newData) {
-	// TODO Check is full and handle tail shift
+	int nextIndex = (_head + 1) % _totalSize;
+	if (nextIndex == _tail) {
+		_tail = (_tail + 1) % _totalSize;
+	}
+
 	_buffer[_head] = newData;
-	_head = (_head + 1) % _totalSize;
+	_head = nextIndex;
 	_dataCount++;
+
+	if (_dataCount > _totalSize) {
+		_dataCount = _totalSize;
+	}
 }
 
 float Buffer::getSingle() {
