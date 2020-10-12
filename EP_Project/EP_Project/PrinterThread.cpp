@@ -1,6 +1,6 @@
-#include "BufferPrinterThread.h"
+#include "PrinterThread.h"
 
-void BufferPrinterThread::run(int sleepTime) {
+void PrinterThread::run(int sleepTime) {
 	_sleepTime = sleepTime;
 
 	while (!cancellationToken) {

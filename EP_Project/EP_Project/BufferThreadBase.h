@@ -19,6 +19,8 @@ class BufferThreadBase
 	protected:
 		// is implemented by its ancestors
 		virtual void run(int sleepTime) = 0;
+
+		std::shared_ptr<Buffer> _buffer;
 		bool cancellationToken = false;
 		int _sleepTime;
 
@@ -29,6 +31,5 @@ class BufferThreadBase
 		}
 
 		std::thread* uthread = nullptr;
-		std::shared_ptr<Buffer> _buffer;
 };
 
