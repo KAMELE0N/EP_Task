@@ -30,7 +30,6 @@ class Buffer
 		std::vector<float> batchBuffer;
 		std::mutex readWriteMutex;
 
-		float getSingle();
 		void addSingle(float newData);
 		void addBatch(std::vector<float> newData);
 };

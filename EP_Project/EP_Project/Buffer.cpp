@@ -66,10 +66,3 @@ void Buffer::addSingle(float newData) {
 		_dataCount = _totalSize;
 	}
 }
-
-float Buffer::getSingle() {
-	float returnValue = _buffer[_tail];
-	_tail = (_tail+1) % _totalSize;
-	_dataCount--;
-	return returnValue;
-}
