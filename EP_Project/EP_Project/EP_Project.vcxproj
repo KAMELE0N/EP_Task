@@ -148,10 +148,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Buffer.cpp" />
+    <ClCompile Include="PrinterConsumerTask.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="BufferTaskBase.cpp" />
+    <ClCompile Include="ProducerTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.h" />
+    <ClInclude Include="BufferTaskBase.h" />
+    <ClInclude Include="PrinterConsumerTask.h" />
+    <ClInclude Include="ProducerTask.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
