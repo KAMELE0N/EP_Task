@@ -6,7 +6,10 @@ void ProducerThread::run(int sleepTime) {
 	while (!cancellationToken) {
 		std::cout << "Producer ping" << std::endl;	// Debug log
 
-		// TODO Add producer logic 
+		int randomValue = std::rand();
+		float randomSignal = sin(randomValue / 100 % 5000); // Crop signal 
+		_buffer->add(randomSignal);
+
 		Sleep(_sleepTime);
 	}
 }

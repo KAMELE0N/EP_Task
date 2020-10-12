@@ -19,10 +19,10 @@
     <Filter Include="Header Files\Buffer">
       <UniqueIdentifier>{d4044433-9270-4433-905f-733109c68a3a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Tasks">
+    <Filter Include="Header Files\Threads">
       <UniqueIdentifier>{20a5afec-299c-42db-a2d4-bbfaf0ee540c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Tasks">
+    <Filter Include="Source Files\Threads">
       <UniqueIdentifier>{31b86e42-b826-4715-88a4-0e87a69a130e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -33,17 +33,17 @@
     <ClCompile Include="Buffer.cpp">
       <Filter>Source Files\Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="BufferPrinterThread.cpp">
-      <Filter>Source Files\Tasks</Filter>
-    </ClCompile>
     <ClCompile Include="BufferThreadBase.cpp">
-      <Filter>Source Files\Tasks</Filter>
+      <Filter>Source Files\Threads</Filter>
     </ClCompile>
     <ClCompile Include="ProducerThread.cpp">
-      <Filter>Source Files\Tasks</Filter>
+      <Filter>Source Files\Threads</Filter>
     </ClCompile>
     <ClCompile Include="ConsumerThread.cpp">
-      <Filter>Source Files\Tasks</Filter>
+      <Filter>Source Files\Threads</Filter>
+    </ClCompile>
+    <ClCompile Include="PrinterThread.cpp">
+      <Filter>Source Files\Threads</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,16 +51,16 @@
       <Filter>Header Files\Buffer</Filter>
     </ClInclude>
     <ClInclude Include="BufferThreadBase.h">
-      <Filter>Header Files\Tasks</Filter>
-    </ClInclude>
-    <ClInclude Include="BufferPrinterThread.h">
-      <Filter>Header Files\Tasks</Filter>
+      <Filter>Header Files\Threads</Filter>
     </ClInclude>
     <ClInclude Include="ProducerThread.h">
-      <Filter>Header Files\Tasks</Filter>
+      <Filter>Header Files\Threads</Filter>
     </ClInclude>
     <ClInclude Include="ConsumerThread.h">
-      <Filter>Header Files\Tasks</Filter>
+      <Filter>Header Files\Threads</Filter>
+    </ClInclude>
+    <ClInclude Include="PrinterThread.h">
+      <Filter>Header Files\Threads</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

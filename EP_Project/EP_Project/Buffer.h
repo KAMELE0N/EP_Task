@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <atomic>
+#include <mutex>
 
 // Maybe convert to template
 class Buffer
@@ -10,7 +11,7 @@ class Buffer
 		Buffer(int size, int batchSize);
 		virtual ~Buffer();
 
-		void add(std::vector<float> newData);
+		void add(float newData);
 		std::vector<float> get();
 
 	private:
@@ -22,8 +23,9 @@ class Buffer
 		int _batchSize;
 		int _dataCount;
 
+		std::mutex readWriteMutex;
+
 		void clear();
-		void addSingle(float newData);
 		float getSingle();
 };
 

@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Buffer.cpp" />
-    <ClCompile Include="BufferPrinterThread.cpp" />
+    <ClCompile Include="PrinterThread.cpp" />
     <ClCompile Include="ConsumerThread.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BufferThreadBase.cpp" />
@@ -156,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.h" />
-    <ClInclude Include="BufferPrinterThread.h" />
+    <ClInclude Include="PrinterThread.h" />
     <ClInclude Include="BufferThreadBase.h" />
     <ClInclude Include="ConsumerThread.h" />
     <ClInclude Include="ProducerThread.h" />
